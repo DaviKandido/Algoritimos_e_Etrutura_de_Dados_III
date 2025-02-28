@@ -10,13 +10,13 @@ public class Arquivo {
 
     public Arquivo(String ne) throws Exception {
         this.nomeEntidade = ne;
-        File f = new File(".//dados");
+        File f = new File("./dados");
         if(!f.exists())
             f.mkdir();
-        f = new File(".//dados//"+nomeEntidade);
+        f = new File("./dados/"+nomeEntidade);
         if(!f.exists())
             f.mkdir();
-        arquivo = new RandomAccessFile(".//dados//"+nomeEntidade+"//"+nomeEntidade +".db", "rw");
+        arquivo = new RandomAccessFile("./dados/"+nomeEntidade+"/"+nomeEntidade +".db", "rw");
         if(arquivo.length()<TAMANHO_CABECALHO) {
             arquivo.writeByte(1);  // versão do Arquivo
             arquivo.writeInt(0);   // último ID
